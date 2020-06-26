@@ -17,23 +17,38 @@
         <p class="lead text-secondary">Proyectos realizados Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</p>
 
-        <ul class="list-group">
+        <div class="d-flex flex-wrap justify-content-between align-items-start">
             @forelse ($projects as $project)
-                <li class="list-group-item border-0 mb-3 shadow-sm">
-                    <a class="text-secondary d-flex justify-content-between align-items-center" href="{{ route('projects.show', $project) }}">
-                        <span class="font-weight-bold">
-                            {{ $project->title }}
-                        </span>
-                        <span class="text-black-50">
+                <div class="card border-0 mb-3 shadow-sm mt-4 mx-auto" style="width: 18rem">
+
+                    @if($project->image)
+                        <img class="card-img-top"
+                            style="height: 150px; object-fit: cover;"
+                            src="/storage/{{ $project->image }}"
+                            alt="{{ $project->title }}">
+                    @endif
+
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ route('projects.show', $project) }}">
+                                {{ $project->title }}
+                            </a>
+                        </h5>
+                        <h6 class="card-subtitle">
                             {{ $project->created_at->format('d/m/y') }}
-                        </span>
-                    </a>
-                </li>
+                        </h6>
+                        <p class="card-text text-truncate">{{ $project->description }}</p>
+                        <a href="{{ route('projects.show', $project) }}" class="btn btn-primary btn-sm">Ver mas...</a>
+                    </div>
+
+                </div>
             @empty
                 <li class="list-group-item border-0 mb-3 shadow-sm">No hay proyectos</li>
             @endforelse
-            {{ $projects->links() }}
-        </ul>
+            <div class="mt-4">
+                {{ $projects->links() }}
+            </div>
+        </div>
 
     </div>
 

@@ -11,8 +11,11 @@
 
             @include('partials.validation-errors')
 
-            <form class="bg-white py-4 px-3 shadow rouded" action="{{ route('projects.store') }}" method="POST">
-                @csrf
+            <form class="bg-white py-4 px-3 shadow rouded"
+                action="{{ route('projects.store') }}"
+                method="POST"
+                enctype="multipart/form-data">
+
                 <h1>Crear nuevo proyecto</h1>
                 <hr>
 
