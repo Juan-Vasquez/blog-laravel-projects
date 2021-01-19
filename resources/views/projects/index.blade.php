@@ -14,8 +14,7 @@
             <!-- ----------------- -->
         </div>
 
-        <p class="lead text-secondary">Proyectos realizados Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="lead text-secondary">Proyectos realizados, a fines de mostrar mis habilidades y puedan conocerme por lo que puedo hacer con las diferentes tecnologias de back-end.</p>
 
         <div class="d-flex flex-wrap justify-content-between align-items-start">
             @forelse ($projects as $project)
