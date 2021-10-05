@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\Events\ProjectSave;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
@@ -47,12 +48,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        //Redimensionando imagen
-        $image = Image::make(Storage::get($project->image))
-            ->widen(600)
-            ->encode();
-
-        Storage::put($project->image, (string) $image);
+        ProjectSave::dispatch($project);
 
         return redirect()->route('projects.index')->with('status', 'Tu proyecto fue creado con exito.');
     }
@@ -76,11 +72,7 @@ class ProjectController extends Controller
             $project->save();
 
             //Redimensionando imagen
-            $image = Image::make(Storage::get($project->image))
-                ->widen(600)
-                ->encode();
-
-            Storage::put($project->image, (string) $image);
+            ProjectSave::dispatch($project);
 
 
         } else {
