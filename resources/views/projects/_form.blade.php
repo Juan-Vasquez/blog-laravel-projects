@@ -21,7 +21,7 @@
     <select name="category_id" id="category_id" class="form-control border-0 bg-light shadow-sm">
         <option value="">Categorias...</option>
         @foreach($categories as $id => $name)
-        <option value="{{$id}}" @if($id==$project->category_id) selected @endif>{{$name}}</option>
+        <option value="{{$id}}" @if($id== old('category_id', $project->category_id)) selected @endif>{{$name}}</option>
         @endforeach
     </select>
 </div>
