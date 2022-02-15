@@ -182,5 +182,6 @@ return [
         'username'              => 'usuario',
         'year'                  => 'año',
         'image'                 => 'imagen',
+        'category_id'           => 'categoria',
     ],
 ];
