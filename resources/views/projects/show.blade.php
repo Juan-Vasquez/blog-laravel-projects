@@ -15,7 +15,11 @@
 
 				<div class="bg-white p-4 rounded shadow">
 
-					<h1>{{ $projects->title }}</h1>
+					<h1 class="mb-0">{{ $projects->title }}</h1>
+
+					@if($projects->category_id)
+                        <a href="{{ route('categories.show', $projects->category) }}" class="badge badge-secondary mb-1">{{$projects->category->name}}</a>
+                    @endif
 
 					<p class="text-secundary">{{ $projects->description }}</p>
 					<p class="text-black-50">{{ $projects->created_at->diffForHumans() }}</p>

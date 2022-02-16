@@ -1,5 +1,9 @@
 <?php
 
+// DB::listen(function($query){
+// 	var_dump($query->sql);
+// });
+
 Route::view('/', 'home')->name('home');
 Route::view('/quienes-somos', 'about')->name('about');
 
@@ -18,5 +22,7 @@ Route::resource('/portafolio', 'ProjectController')->names('projects')->paramete
 
 Route::view('/contacto', 'contact')->name('contact');
 Route::post('/contact', 'MessageController@store')->name('message.store');
+
+Route::get('categories/{category}', 'CategoryController@show')->name('categories.show');
 
 Auth::routes(['register' => false]);
