@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Project;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -22,7 +23,7 @@ class ProjectSave
      *
      * @return void
      */
-    public function __construct($project)
+    public function __construct(Project $project)
     {
         //
         $this->project = $project;

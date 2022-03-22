@@ -6,7 +6,6 @@ use App\Project;
 use App\Category;
 use App\Events\ProjectSave;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\SaveProjectRequest;
 
